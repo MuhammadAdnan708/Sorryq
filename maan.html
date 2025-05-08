@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Maan Maria ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffebee;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Initial Animation Screen */
+        #animation-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 235, 238, 0.9);
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        #broken-heart {
+            font-size: 100px;
+            animation: breakHeart 2s ease-in-out infinite;
+            margin-bottom: 30px;
+            color: #e91e63;
+        }
+
+        #initial-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: #e91e63;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInText 3s ease-in-out forwards;
+        }
+
+        /* Main Content (hidden initially) */
+        #main-content {
+            display: none;
+            max-width: 600px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-family: 'Dancing Script', cursive;
+            margin-bottom: 20px;
+        }
+
+        .poem {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin: 25px 0;
+            font-style: italic;
+        }
+
+        .urdu-poem {
+            font-family: 'Nastaliq', 'Urdu Typesetting', sans-serif;
+            font-size: 22px;
+            line-height: 2.5;
+            direction: rtl;
+            color: #d81b60;
+            margin: 30px 0;
+        }
+
+        #forgive-btn {
+            background: linear-gradient(45deg, #e91e63, #ff4081);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+        }
+
+        #forgive-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.6);
+        }
+
+        .hearts {
+            position: absolute;
+            font-size: 20px;
+            color: #ff4081;
+            animation: floatUp 4s linear forwards;
+            z-index: -1;
+        }
+
+        /* Animations */
+        @keyframes breakHeart {
+            0% { transform: scale(1) rotate(0deg); }
+            20% { transform: scale(1.2) rotate(-10deg); }
+            40% { transform: scale(1) rotate(10deg); }
+            60% { transform: scale(1.3) rotate(0deg); }
+            80% { transform: scale(1.1) rotate(-5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            #main-content {
+                width: 80%;
+                margin-top: 40px;
+                
+                padding: 20px;
+            }
+            
+            .urdu-poem {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Initial Animation Screen -->
+    <div id="animation-screen">
+        <h1> Sorry Maria (Maan🥹)</h1>
+        <div id="broken-heart">💔</div>
+        <div id="initial-text">
+           
+            Click to mend my broken heart
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <h1>My Dearest Maan Maria</h1>
+        
+        <div class="poem">
+            I never meant to hurt you, my precious friend<br>
+            My careless words I deeply regret and mend<br>
+            Your smile means more than you'll ever know<br>
+            Please forgive me and don't let our friendship go
+        </div>
+        
+        <div class="urdu-poem">
+            معافی چاہتا ہوں میری مانی<br>
+            میری بے وقوفی تھی یہ سب نادانی<br>
+            تمہاری مسکان ہے میری زندگی<br>
+            برا نہ مانو میری ہے یہ التجا
+        </div>
+        
+        <p>I promise to be more thoughtful and caring. You mean the world to me.</p>
+        
+        <button id="forgive-btn">Please Forgive Me</button>
+    </div>
+
+    <script>
+        // Click animation screen to reveal main content
+        document.getElementById('animation-screen').addEventListener('click', function() {
+            // Animate out the initial screen
+            this.style.animation = 'fadeOut 1s forwards';
+            
+            // Create heart particles transition
+            for (let i = 0; i < 30; i++) {
+                createHeartParticle();
+            }
+            
+            // Show main content after delay
+            setTimeout(() => {
+                this.style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.getElementById('main-content').style.animation = 'pulse 1s';
+            }, 1000);
+        });
+
+        // Forgive button action
+        document.getElementById('forgive-btn').addEventListener('click', function() {
+            // Create celebration hearts
+            for (let i = 0; i < 50; i++) {
+                createHeartParticle();
+            }
+            
+            // Change content to thank you message
+            document.getElementById('main-content').innerHTML = `
+                <h1>Thank You Maan Maria!</h1>
+                <div class="poem">
+                    Your forgiveness means everything to me<br>
+                    Happier than words could ever be<br>
+                    Let's make more memories, you and I<br>
+                    Our friendship will never die
+                </div>
+                <div class="urdu-poem">
+                    شکریہ میری پیاری مانی<br>
+                    تمہاری معافی نے دل سے یہ زخم مٹا دیا<br>
+                    اب ہم پہلے سے بھی زیادہ اچھے دوست بن جائیں گے<br>
+                    یہ دوستی ہمیشہ قائم رہے گی
+                </div>
+                <div style="font-size: 60px; margin: 20px;">❤️</div>
+            `;
+        });
+
+        // Function to create floating hearts
+        function createHeartParticle() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'hearts';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            
+            document.body.appendChild(heart);
+            
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        // Add fadeOut animation to style
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeOut {
+                to { opacity: 0; transform: scale(1.2); }
+            }
+            @font-face {
+                font-family: 'Nastaliq';
+                src: local('Jameel Noori Nastaleeq'), local('Urdu Typesetting');
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
